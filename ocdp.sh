@@ -55,8 +55,7 @@ portainer()	{
 	echo "installing Portainer"
 	sudo docker volume create portainer_data
 	sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --$
-	sudo docker ps
-	
+	sudo docker ps	
 }
 
 readme()	{
@@ -125,7 +124,7 @@ delevenhelp() {
 
 #Executions:
 
-echo "Hi, im your -I'm too lazy to install things manually- script... Deleven created me... let's get to work"
+echo "Hi, im your --- I'm too lazy to install things manually --- script... Deleven created me... let's get to work"
 
 if 	[ "$1" == "--clean" ]; then
 	update
