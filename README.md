@@ -21,11 +21,6 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 - [ ] Mount NAS
 - [ ] Automate cronjob generating
 - [ ] Automate alias creation
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
 - [ ] Wiki
 
 
