@@ -16,6 +16,8 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 **Status:** Just started to work on it, nowhere near to be usable
 
 **Todos**
+
+- [ ] Use Coding from https://youtu.be/_n5ZegzieSQ
 - [ ] List apps to Install on File
 - [ ] Make Optional Overclock
 - [ ] Minecraft Server
