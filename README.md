@@ -11,11 +11,14 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 * overclock (maybe)
 * everything should get updated, upgraded and cleaned up
 
-# How to use the Script
+## Project Status
+Just started to work on it, nowhere near to be usable
+
+## How to use the Script
 
 The Idea of the script is, that you download it to your Pi, then edit it to your liking, and let it run
 
-# How to read and change the Script
+## How to read and change the Script
 
 All Paths, IPs etc. are examples only, you need to adjust it to your specifics.
 
