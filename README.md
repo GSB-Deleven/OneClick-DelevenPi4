@@ -31,7 +31,13 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 
 ## How to use the Script
 
-The Idea of the script is, that you download it to your Pi, then edit it to your liking, and let it run
+The Idea of the script is, that you download it to your Pi right after the initial `raspi-config`configuration, then edit it to your liking, make it executable and and let it run.
+
+* Navigate to your home directory `cd /home/pi/`* Download the file `wget https://raw.githubusercontent.com/GSB-Deleven/OneClick-DelevenPi4/master/Oneclick-DelevenPi4.sh`* Make it executable `sudo chmod +x Oneclick-DelevenPi4.sh`
+* adjust it to your liking `nano Oneclick-DelevenPi4.sh`
+* Run it `./Oneclick-DelevenPi4.sh`
+
+Congratulation, your Pi should be setup and good to go
 
 ## How to read and change the Script
 
