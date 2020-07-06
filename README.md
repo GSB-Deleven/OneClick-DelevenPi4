@@ -25,6 +25,7 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 - []
 - []
 - [] Wiki
+- [x] Finish my changes
 
 ## How to use the Script
 
