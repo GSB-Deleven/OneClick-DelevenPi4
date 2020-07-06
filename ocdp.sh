@@ -1,0 +1,144 @@
+#!/bin/bash
+
+#ocdp = One Click Deleven Pi
+
+#This command makes, that if there is an error, it stops
+set -e
+
+
+#Functions:
+
+update()	{
+	echo "Starting Full system update"
+	sudo apt update
+	sudo apt full-upgrade -yy
+}
+
+clean()	{
+	echo "cleaning up..."
+	sudo apt autoremove -yy
+	sudo apt autoclean
+}
+
+apps()	{
+	echo "Installing your chosen Apps..."
+	sudo apt install screen -y
+	sudo apt install mosh -y
+	sudo apt install neofetch -y
+	sudo apt install timeshift -y
+	sudo apt install nautilus -y
+	sudo apt install openjdk-11-jre-headless -y
+	sudo apt install samba samba-common-bin -y
+	sudo apt install glances -y
+	sudo apt install tightvncserver -y
+	sudo apt install git -y
+	sudo apt install wget -y
+	sudo apt install rsync -y
+	sudo apt install gnome-disk-utility -y
+}
+
+directories()	{
+	echo "creating needed directories.."
+	sudo mkdir /home/pi/bin
+	sudo mkdir /home/pi/Minecraft
+	sudo mkdir /home/pi/NAS
+}
+
+
+docker()	{
+	echo "getting rid of old docker installs and install current version..."
+	sudo curl -fsSL https://get.docker.com -o get-docker.sh
+	sudo sh get-docker.sh
+}
+
+portainer()	{
+	echo "installing Portainer"
+	sudo docker volume create portainer_data
+	sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --$
+	sudo docker ps
+	
+}
+
+readme()	{
+
+cat << _EOF_
+ -------------------------------------------------------------------------------------------------
+ooooooooo.   oooooooooooo       .o.       oooooooooo.   ooo        ooooo oooooooooooo 
+`888   `Y88. `888'     `8      .888.      `888'   `Y8b  `88.       .888' `888'     `8 
+ 888   .d88'  888             .8"888.      888      888  888b     d'888   888         
+ 888ooo88P'   888oooo8       .8' `888.     888      888  8 Y88. .P  888   888oooo8    
+ 888`88b.     888    "      .88ooo8888.    888      888  8  `888'   888   888    "    
+ 888  `88b.   888       o  .8'     `888.   888     d88'  8    Y     888   888       o 
+ o888o  o888o o888ooooood8 o88o     o8888o o888bood8P'   o8o        o888o o888ooooood8  
+--------------------------------------------------------------------------------------------------
+                       _       _     
+  ___ _ __ ___  _ __  (_) ___ | |__  
+ / __| '__/ _ \| '_ \ | |/ _ \| '_ \ 
+| (__| | | (_) | | | || | (_) | |_) |
+ \___|_|  \___/|_| |_|/ |\___/|_.__/ 
+                    |__/          
+
+add Cronjobs with "cronjob -e" current Version is found on 
+https://github.com/GSB-Deleven/DelevenPi4/ 
+see
+DelevenPi4/crontab -e
+DelevenPi4/bin/cronjobs
+ 
+ __   ___  _  ___ 
+ \ \ / / \| |/ __|
+  \ V /| .` | (__ 
+   \_/ |_|\_|\___|
+                    
+Startet tightVNCserver manuell mit tightvncserver -geometry 1920x1080
+
+
+███████╗███╗   ██╗     ██╗ ██████╗ ██╗   ██╗                                          
+██╔════╝████╗  ██║     ██║██╔═══██╗╚██╗ ██╔╝                                          
+█████╗  ██╔██╗ ██║     ██║██║   ██║ ╚████╔╝                                           
+██╔══╝  ██║╚██╗██║██   ██║██║   ██║  ╚██╔╝                                            
+███████╗██║ ╚████║╚█████╔╝╚██████╔╝   ██║                                             
+╚══════╝╚═╝  ╚═══╝ ╚════╝  ╚═════╝    ╚═╝                                             
+                                                                                      
+██████╗ ███████╗██╗     ███████╗██╗   ██╗███████╗███╗   ██╗    ██████╗ ██╗    ██╗  ██╗
+██╔══██╗██╔════╝██║     ██╔════╝██║   ██║██╔════╝████╗  ██║    ██╔══██╗██║    ██║  ██║
+██║  ██║█████╗  ██║     █████╗  ██║   ██║█████╗  ██╔██╗ ██║    ██████╔╝██║    ███████║
+██║  ██║██╔══╝  ██║     ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║    ██╔═══╝ ██║    ╚════██║
+██████╔╝███████╗███████╗███████╗ ╚████╔╝ ███████╗██║ ╚████║    ██║     ██║         ██║
+╚═════╝ ╚══════╝╚══════╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝    ╚═╝     ╚═╝         ╚═╝                                                                                 
+_EOF_                                                                  
+
+}
+
+leave() {
+	echo "--------------------------------------"
+	echo " Whatever you decided to to, its done "
+	echo "--------------------------------------"
+	exit
+}
+
+delevenhelp() {
+	echo "------------------------------------------"
+	echo " Sadly Deleven didn't make a helpfile yet "
+	echo "------------------------------------------"
+}
+
+
+#Executions:
+
+echo "Hi, im your -I'm too lazy to install things manually- script... Deleven created me... let's get to work"
+
+if 	[ "$1" == "--clean" ]; then
+	update
+	clean
+	leave
+fi
+
+if 	[ "$1" == "--help" ]; then
+	delevenhelp
+	exit
+fi
+
+if 	[ -n "$1" ]; then
+	echo "Error: Invalid argument. Try 'ocdp --help' for more info."
+	exit
+fi

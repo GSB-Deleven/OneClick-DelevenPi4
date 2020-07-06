@@ -1,4 +1,4 @@
-# One Click - Deleven Pi 4
+# One Click - Deleven Pi
 
 Its a script where after the initial Setup of the Pi, evrything else gets install and added Manually, such as:
 
