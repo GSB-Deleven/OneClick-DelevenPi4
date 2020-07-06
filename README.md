@@ -8,7 +8,7 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 * create necessary directory
 * create necessary files
 * create alias
-* overclock (maybe)
+* overclock
 * everything should get updated, upgraded and cleaned up
 
 ## Project Status and Todos
@@ -16,12 +16,15 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 **Status:** Just started to work on it, nowhere near to be usable
 
 **Todos**
+- [ ] Convert original File to a nice Script with `if`
+and `functions`
+- [ ] use it in the way of https://youtu.be/_n5ZegzieSQ
 - [ ] List apps to Install on File
 - [ ] Make Optional Overclock
 - [ ] Minecraft Server
 - [ ] Mount NAS
-- [ ] Automate cronjob generating
-- [ ] Automate alias creation
+- [ ] Add cronjobs automatically
+- [ ] Create alias automatically
 - [ ] Readme: List Apps
 - [ ] Readme: write Guide on how to use the script
 - [ ] Readme: write a guide on how to change the script to the users liking
@@ -33,7 +36,9 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 
 The Idea of the script is, that you download it to your Pi right after the initial `raspi-config`configuration, then edit it to your liking, make it executable and and let it run.
 
-* Navigate to your home directory `cd /home/pi/`* Download the file `wget https://raw.githubusercontent.com/GSB-Deleven/OneClick-DelevenPi4/master/Oneclick-DelevenPi4.sh`* Make it executable `sudo chmod +x Oneclick-DelevenPi4.sh`
+* Navigate to your home directory `cd /home/pi/`
+* Download the file `wget https://raw.githubusercontent.com/GSB-Deleven/OneClick-DelevenPi4/master/Oneclick-DelevenPi4.sh`
+* Make it executable `sudo chmod +x Oneclick-DelevenPi4.sh`
 * adjust it to your liking `nano Oneclick-DelevenPi4.sh`
 * Run it `./Oneclick-DelevenPi4.sh`
 
