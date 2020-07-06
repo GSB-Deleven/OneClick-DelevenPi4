@@ -16,8 +16,8 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 **Status:** Just started to work on it, nowhere near to be usable
 
 **Todos**
-- [] Make Optional Overclock
-- [] Minecraft Server
+- [x] Make Optional Overclock
+- [ ] Minecraft Server
 - [] Mount NAS
 - [] Automate cronjob generating
 - [] Automate alias creation
@@ -25,7 +25,7 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 - []
 - []
 - [] Wiki
-- [x] Finish my changes
+
 
 ## How to use the Script
 
