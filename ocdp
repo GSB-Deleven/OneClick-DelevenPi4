@@ -67,7 +67,7 @@ minecraft-install-startscript()	{
 	cat > /home/pi/Minecraft/start.sh << EOF
 	cd /home/pi/Minecraft
 	java -Xms2G -Xmx6G -jar paper-79.jar --nogui
-	
+
 	# substitute paper-79.jar with the version of minecraftserver .jar you want to run
 	# I get mine from https://papermc.io/downloads
 EOF
@@ -137,8 +137,6 @@ update()	{
 
 #Executions:
 
-echo "Hi, im your --- I'm too lazy to install things manually --- script... Deleven created me... let's get to work"
-
 if 	[ "$1" == "--clean" ]; then
 	update
 	clean
@@ -152,11 +150,20 @@ fi
 
 if 	[ "$1" == "--mc-install-startscript" ]; then
 	minecraft-install-startscript
+	leave
 	exit
 fi
 
 if 	[ "$1" == "--mc-start" ]; then
 	minecraft-server-start
+	cat << EOF 
+	---------------------------------------------------------------------------------------------------------
+	Server should have started
+	screen -ls = List screens to see if one is running
+	screen -r = go to screen, if there are mor the one use screen -r screenname (7094.Minecraft for example)
+	exit the screen with 'ctrl+a then d'
+	---------------------------------------------------------------------------------------------------------
+EOF
 	exit
 fi
 
