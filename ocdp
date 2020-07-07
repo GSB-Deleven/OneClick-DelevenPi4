@@ -8,18 +8,6 @@ set -e
 
 #Functions:
 
-update()	{
-	echo "Starting Full system update"
-	sudo apt update
-	sudo apt full-upgrade -yy
-}
-
-clean()	{
-	echo "cleaning up..."
-	sudo apt autoremove -yy
-	sudo apt autoclean
-}
-
 apps()	{
 	echo "Installing your chosen Apps..."
 	sudo apt install screen -y
@@ -37,6 +25,18 @@ apps()	{
 	sudo apt install gnome-disk-utility -y
 }
 
+clean()	{
+	echo "cleaning up..."
+	sudo apt autoremove -yy
+	sudo apt autoclean
+}
+
+delevenhelp() {
+	echo "------------------------------------------"
+	echo " Sadly Deleven didn't make a helpfile yet "
+	echo "------------------------------------------"
+}
+
 directories()	{
 	echo "creating needed directories.."
 	sudo mkdir /home/pi/bin
@@ -48,9 +48,7 @@ docker()	{
 	echo "getting rid of old docker installs and install current version..."
 	sudo curl -fsSL https://get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh
-}
-
-portainer()	{
+#Portainer gets installed as well
 	echo "installing Portainer"
 	sudo docker volume create portainer_data
 	sudo docker run -d -p 9000:9000 -p 8000:8000 --name portainer --$
@@ -62,12 +60,6 @@ leave() {
 	echo " Whatever you decided to to, its done "
 	echo "--------------------------------------"
 	exit
-}
-
-delevenhelp() {
-	echo "------------------------------------------"
-	echo " Sadly Deleven didn't make a helpfile yet "
-	echo "------------------------------------------"
 }
 
 readme()	{
@@ -119,6 +111,12 @@ Startet tightVNCserver manuell mit tightvncserver -geometry 1920x1080
 
 EOF
 
+}
+
+update()	{
+	echo "Starting Full system update"
+	sudo apt update
+	sudo apt full-upgrade -yy
 }
 
 #Executions:
