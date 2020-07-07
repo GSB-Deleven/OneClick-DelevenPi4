@@ -44,7 +44,6 @@ directories()	{
 	sudo mkdir /home/pi/NAS
 }
 
-
 docker()	{
 	echo "getting rid of old docker installs and install current version..."
 	sudo curl -fsSL https://get.docker.com -o get-docker.sh
@@ -58,9 +57,22 @@ portainer()	{
 	sudo docker ps	
 }
 
+leave() {
+	echo "--------------------------------------"
+	echo " Whatever you decided to to, its done "
+	echo "--------------------------------------"
+	exit
+}
+
+delevenhelp() {
+	echo "------------------------------------------"
+	echo " Sadly Deleven didn't make a helpfile yet "
+	echo "------------------------------------------"
+}
+
 readme()	{
 
-cat << _EOF_
+cat << EOF
  -------------------------------------------------------------------------------------------------
 ooooooooo.   oooooooooooo       .o.       oooooooooo.   ooo        ooooo oooooooooooo 
 `888   `Y88. `888'     `8      .888.      `888'   `Y8b  `88.       .888' `888'     `8 
@@ -104,23 +116,10 @@ Startet tightVNCserver manuell mit tightvncserver -geometry 1920x1080
 ██║  ██║██╔══╝  ██║     ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╗██║    ██╔═══╝ ██║    ╚════██║
 ██████╔╝███████╗███████╗███████╗ ╚████╔╝ ███████╗██║ ╚████║    ██║     ██║         ██║
 ╚═════╝ ╚══════╝╚══════╝╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝    ╚═╝     ╚═╝         ╚═╝                                                                                 
-_EOF_                                                                  
+
+EOF
 
 }
-
-leave() {
-	echo "--------------------------------------"
-	echo " Whatever you decided to to, its done "
-	echo "--------------------------------------"
-	exit
-}
-
-delevenhelp() {
-	echo "------------------------------------------"
-	echo " Sadly Deleven didn't make a helpfile yet "
-	echo "------------------------------------------"
-}
-
 
 #Executions:
 
