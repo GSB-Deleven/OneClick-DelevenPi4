@@ -22,6 +22,7 @@ apps()	{
 	sudo apt install wget -y
 	sudo apt install rsync -y
 	sudo apt install gnome-disk-utility -y
+	sudo apt install tmux -y
 }
 
 clean()	{
