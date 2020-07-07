@@ -57,6 +57,7 @@ directories()	{
 
 docker()	{
 	echo "getting rid of old docker installs and install current version..."
+	sudo apt-get remove docker docker-engine docker.io
 	sudo curl -fsSL https://get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh
 #Portainer gets installed as well
