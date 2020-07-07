@@ -72,10 +72,9 @@ EOF
 	chmod +x /home/pi/Minecraft/start.sh
 	}
 
-minecraft-start()	{
+minecraft-server-start()	{
 	echo "starting the Minecraft Server..."
 	screen -d -m -S Minecraft bash -c '/home/pi/Minecraft/start.sh'
-
 }
 
 readme()	{
@@ -153,6 +152,12 @@ fi
 if 	[ "$1" == "--mc-install-startscript" ]; then
 	minecraft-install-startscript
 	exit
+fi
+
+if 	[ "$1" == "--mc-start" ]; then
+	minecraft-server-start
+	exit
+fi
 
 if 	[ -n "$1" ]; then
 	echo "Error: Invalid argument. Try 'ocdp --help' for more info."
