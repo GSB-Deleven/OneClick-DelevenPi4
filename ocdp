@@ -38,7 +38,7 @@ delevenhelp() {
 }
 
 directories()	{
-	echo "creating needed directories.."
+	echo "creating needed directories..."
 	sudo mkdir /home/pi/bin
 	sudo mkdir /home/pi/Minecraft
 	sudo mkdir /home/pi/NAS
@@ -60,6 +60,16 @@ leave() {
 	echo " Whatever you decided to to, its done "
 	echo "--------------------------------------"
 	exit
+}
+
+minecraft-install()	{
+	echo "installing the Minecraft Server..."
+	
+}
+
+minecraft-start()	{
+	echo "starting the Minecraft Server..."
+	
 }
 
 readme()	{
