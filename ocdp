@@ -5,7 +5,6 @@
 #This command makes, that if there is an error, it stops
 set -e
 
-
 #Functions:
 
 apps()	{
