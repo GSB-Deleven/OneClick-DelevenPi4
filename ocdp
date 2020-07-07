@@ -32,9 +32,20 @@ clean()	{
 }
 
 delevenhelp() {
-	echo "------------------------------------------"
-	echo " Sadly Deleven didn't make a helpfile yet "
-	echo "------------------------------------------"
+	cat << EOF
+--help										this command
+--clean
+
+--mc-install-startscript					creates/overwrites /home/pi/Minecraft/start.sh
+--mc-start									starts Minecraftserver in a Screen
+											Screen Commands:
+											screen -ls = List screens to see if one is running
+											screen -r = go to screen, if there are mor the one use screen -r screenname (7094.Minecraft for example)
+											kill 7094 = kills the screen with the ID 7094
+											exit the screen with 'ctrl+a then d'
+
+
+EOF
 }
 
 directories()	{
@@ -161,6 +172,7 @@ if 	[ "$1" == "--mc-start" ]; then
 	Server should have started
 	screen -ls = List screens to see if one is running
 	screen -r = go to screen, if there are mor the one use screen -r screenname (7094.Minecraft for example)
+	kill 7094 = kills the screen with the ID 7094
 	exit the screen with 'ctrl+a then d'
 	---------------------------------------------------------------------------------------------------------
 EOF
