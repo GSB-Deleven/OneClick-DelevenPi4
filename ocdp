@@ -62,14 +62,20 @@ leave() {
 	exit
 }
 
-minecraft-install()	{
-	echo "installing the Minecraft Server..."
-	
-}
+minecraft-install-startscript()	{
+	echo "installing the Minecraft Server Startscript in /home/pi/Minecraft..."
+	cat > /home/pi/Minecraft/start.sh << EOF
+	cd /home/pi/Minecraft
+	java -Xms2G -Xmx6G -jar paper-44.jar
+	cd /home/pi
+EOF
+	chmod +x /home/pi/Minecraft/start.sh
+	}
 
 minecraft-start()	{
 	echo "starting the Minecraft Server..."
-	
+	screen -d -m -S Minecraft bash -c '/home/pi/Minecraft/start.sh'
+
 }
 
 readme()	{
@@ -143,6 +149,10 @@ if 	[ "$1" == "--help" ]; then
 	delevenhelp
 	exit
 fi
+
+if 	[ "$1" == "--mc-install-startscript" ]; then
+	minecraft-install-startscript
+	exit
 
 if 	[ -n "$1" ]; then
 	echo "Error: Invalid argument. Try 'ocdp --help' for more info."
