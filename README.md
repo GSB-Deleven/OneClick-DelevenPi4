@@ -16,6 +16,7 @@ Its a script where after the initial Setup of the Pi, evrything else gets instal
 **Status:** Just started to work on it, nowhere near to be usable
 
 **Todos**
+- [ ] replace `pi` with `$USER` in script, so it is universally usable
 - [ ] Convert original File to a nice Script with `if`
 and `functions`
 - [ ] use it in the way of https://youtu.be/_n5ZegzieSQ
