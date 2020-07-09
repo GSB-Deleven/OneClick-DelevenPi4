@@ -149,6 +149,18 @@ update()	{
 
 #Executions:
 
+if 	[ "$1" == "--start" ]; then
+	update
+	clean
+	apps
+	directories
+	docker
+	minecraft-install-startscript
+	update
+	clean
+	leave
+fi
+
 if 	[ "$1" == "--clean" ]; then
 	update
 	clean
