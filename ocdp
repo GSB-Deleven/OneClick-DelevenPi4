@@ -17,6 +17,7 @@ apps()	{
 	sudo apt install openjdk-11-jre-headless -y
 	sudo apt install samba samba-common-bin -y
 	sudo apt install glances -y
+	sudo apt install htop -y
 	sudo apt install tightvncserver -y
 	sudo apt install git -y
 	sudo apt install wget -y
