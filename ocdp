@@ -36,15 +36,16 @@ clean()	{
 }
 
 delevenhelp() {
-	cat << EOF
+	cat << EOF	
 --help										this command
+--start										starts everything
 --clean
 
---mc-install-startscript					creates/overwrites /home/$USER/Minecraft/start.sh
+--mc-install-startscript						creates/overwrites /home/$USER/Minecraft/start.sh
 --mc-start									starts Minecraftserver in a Screen
-											Screen Commands:
-											screen -ls = List screens to see if one is running
-											screen -r = go to screen, if there are mor the one use screen -r screenname (7094.Minecraft for example)
+												Screen Commands:
+												screen -ls = List screens to see if one is running
+												screen -r = go to screen, if there are mor the one use screen -r screenname (7094.Minecraft for example)
 											kill 7094 = kills the screen with the ID 7094
 											exit the screen with 'ctrl+a then d'
 
