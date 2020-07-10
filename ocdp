@@ -3,27 +3,30 @@
 #ocdp = One Click Deleven Pi
 
 #This command makes, that if there is an error, it stops
-set -e
+#set -e
 
 #Functions:
 
 apps()	{
 	echo "Installing your chosen Apps..."
-	sudo apt install screen -y
-	sudo apt install mosh -y
-	sudo apt install neofetch -y
-	sudo apt install timeshift -y
-	sudo apt install nautilus -y
-	sudo apt install openjdk-11-jre-headless -y
-	sudo apt install samba samba-common-bin -y
-	sudo apt install glances -y
-	sudo apt install htop -y
-	sudo apt install tightvncserver -y
-	sudo apt install git -y
-	sudo apt install wget -y
-	sudo apt install rsync -y
-	sudo apt install gnome-disk-utility -y
-	sudo apt install tmux -y
+	sudo apt install -yy \
+	screen \
+	mosh \
+	neofetch \
+	timeshift \
+	nautilus \
+	openjdk-11-jre-headless \
+	samba samba-common-bin \
+	glances \
+	htop \
+	tightvncserver \
+	git \
+	wget \
+	rsync \
+	gnome-disk-utility \
+	tmux \
+	gdebi \
+	stacer
 }
 
 clean()	{
@@ -37,7 +40,7 @@ delevenhelp() {
 --help										this command
 --clean
 
---mc-install-startscript					creates/overwrites /home/pi/Minecraft/start.sh
+--mc-install-startscript					creates/overwrites /home/$USER/Minecraft/start.sh
 --mc-start									starts Minecraftserver in a Screen
 											Screen Commands:
 											screen -ls = List screens to see if one is running
@@ -51,9 +54,9 @@ EOF
 
 directories()	{
 	echo "creating needed directories..."
-	sudo mkdir /home/pi/bin
-	sudo mkdir /home/pi/Minecraft
-	sudo mkdir /home/pi/NAS
+	sudo mkdir /home/$USER/bin
+	sudo mkdir /home/$USER/Minecraft
+	sudo mkdir /home/$USER/NAS
 }
 
 docker()	{
@@ -75,21 +78,22 @@ leave() {
 	exit
 }
 
-minecraft-install-startscript()	{
-	echo "installing the Minecraft Server Startscript in /home/pi/Minecraft..."
-	cat > /home/pi/Minecraft/start.sh << EOF
-	cd /home/pi/Minecraft
+minecraft-installation-startscript()	{
+	echo "installing the Minecraft Server Startscript in /home/$USER/Minecraft..."
+	sudo touch /home/$USER/Minecraft/start.sh
+	sudo cat > /home/$USER/Minecraft/start.sh << EOF
+	cd /home/$USER/Minecraft
 	java -Xms2G -Xmx6G -jar paper-79.jar --nogui
 
 	# substitute paper-79.jar with the version of minecraftserver .jar you want to run
 	# I get mine from https://papermc.io/downloads
 EOF
-	chmod +x /home/pi/Minecraft/start.sh
+	chmod +x /home/$USER/Minecraft/start.sh
 	}
 
 minecraft-server-start()	{
 	echo "starting the Minecraft Server..."
-	screen -d -m -S Minecraft bash -c '/home/pi/Minecraft/start.sh'
+	screen -d -m -S Minecraft bash -c '/home/$USER/Minecraft/start.sh'
 }
 
 readme()	{
@@ -144,7 +148,7 @@ EOF
 
 update()	{
 	echo "Starting Full system update"
-	sudo apt update
+	sudo apt update -qq
 	sudo apt full-upgrade -yy
 }
 
@@ -156,7 +160,7 @@ if 	[ "$1" == "--start" ]; then
 	apps
 	directories
 	docker
-	minecraft-install-startscript
+	minecraft-installation-startscript
 	update
 	clean
 	leave
