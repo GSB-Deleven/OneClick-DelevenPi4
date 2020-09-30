@@ -13,6 +13,7 @@ apps()	{
 	screen \
 	mosh \
 	neofetch \
+	screenfetch \
 	timeshift \
 	nautilus \
 	openjdk-11-jre-headless \
